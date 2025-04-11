@@ -1,6 +1,7 @@
 <template>
   <div 
     class="syrup" 
+    v-if="beverageStore.currentSyrup"
     :style="{ backgroundColor: beverageStore.currentSyrup.color }"
   ></div>
 </template>

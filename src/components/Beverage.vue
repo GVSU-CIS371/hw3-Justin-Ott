@@ -8,12 +8,13 @@
     <Contents>
       <!-- Creamer (Top Slot) -->
       <template v-slot:top>
-        <Creamer v-if="beverageStore.currentCreamer.color !== 'transparent'" />
-      </template>
+      <Creamer v-if="beverageStore.currentCreamer && beverageStore.currentCreamer.color !== 'transparent'" 
+      />
+    </template>
       
       <!-- Syrup (Mid Slot) - Only one mid slot needed -->
       <template v-slot:mid>
-        <Syrup v-if="beverageStore.currentSyrup.color !== 'transparent'" />
+        <Syrup v-if="beverageStore.currentSyrup && beverageStore.currentSyrup.color !== 'transparent'" />
       </template>
 
       <!-- Base Beverage (Bottom Slot) -->

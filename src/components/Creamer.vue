@@ -3,7 +3,7 @@
     class="creamer" 
     :style="{ backgroundColor: 'transparent' }" 
   >
-    <div v-if="beverageStore.currentCreamer.color !== 'transparent'" class="froth">
+    <div v-if="beverageStore.currentCreamer && beverageStore.currentCreamer.color !== 'transparent'" class="froth">
       <div 
         v-for="i in 5" 
         :key="i" 
