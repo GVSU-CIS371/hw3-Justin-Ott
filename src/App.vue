@@ -84,10 +84,10 @@
 <script setup lang="ts">
 import Beverage from "./components/Beverage.vue";
 import { useBeverageStore } from "./stores/beverageStore";
-import { watch } from 'vue';
 import { BeverageType } from "./types/beverage";
 
 const beverageStore = useBeverageStore();
+beverageStore.init();
 
 const loadBeverage = (beverage: BeverageType) => {
   beverageStore.showBeverage(beverage);
@@ -96,30 +96,6 @@ const loadBeverage = (beverage: BeverageType) => {
 const clearBeverages = () => {
   useBeverageStore().$patch({ beverages: [], currentBeverage: null });
 };
-
-// Debugging: Log when selections change
-watch(
-  () => beverageStore.currentBase,
-  (newBase) => {
-    console.log('Selected Base:', newBase);
-  },
-  { deep: true }
-);
-
-watch(
-  () => beverageStore.currentSyrup,
-  (newSyrup) => {
-    console.log('Selected Syrup:', newSyrup);
-  },
-  { deep: true }
-);
-
-// Log initial state
-console.log('INITIAL STATE:', {
-  base: beverageStore.currentBase,
-  syrup: beverageStore.currentSyrup,
-  creamer: beverageStore.currentCreamer
-});
 </script>
 
 <style lang="scss">
